@@ -71,8 +71,8 @@ var HEIGHT = canvas.height
 var renderFrame = function(){
 tick++;
 window.requestAnimationFrame(renderFrame)
-  camx=mousex
-  camy=mousey
+  camx+=(mousex-camx)/2
+  camy+=(mousey-camy)/2
   
   
   
