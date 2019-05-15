@@ -1,4 +1,4 @@
-document.body.style.background = "#222222"
+document.style.background = "#222222"
 var tick = 0;
 var canvas = document.createElement("canvas")
 canvas.style.filter = "contrast(200%)"
