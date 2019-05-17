@@ -77,8 +77,8 @@ var emitters = [
     particles:[]
   }
 ]
-canvas.height=1080/4
-canvas.width = 1920/4
+canvas.height=1080/3
+canvas.width = 1920/3
 invcanv.height = canvas.height
 invcanv.width = canvas.width
 document.body.appendChild(canvas)
@@ -150,13 +150,13 @@ ctx.fillRect(0,0,WIDTH,HEIGHT)
     ctx.fillStyle = grad
     ctx.fillRect(sx-gl*10,sy,gl*20,1)
     ctx.fillRect(sx,sy-gl*10,1,gl*20)
-    grad = ctx.createRadialGradient(sx,sy,0,sx,sy,gl*15)
-    grad.addColorStop(0,cf3i(em.color).c.mult(0.5))
+    grad = ctx.createRadialGradient(sx,sy,0,sx,sy,gl*30)
+    grad.addColorStop(0,cf3i(em.color).c.mult(0.05))
     grad.addColorStop(1,"#000000")
     ctx.fillStyle = grad
-    //ctx.beginPath()
-    //ctx.arc(sx,sy,gl*20,0,2*Math.PI)
-    //ctx.fill()
+    ctx.beginPath()
+    ctx.arc(sx,sy,gl*35,0,2*Math.PI)
+    ctx.fill()
     ctx.lineCap = "round"
     grad = ctx.createRadialGradient(sx,sy,0,sx,sy,4*Math.sqrt(Math.pow(partxv,2)+Math.pow(partyv,2)))
       var gls = Math.max.apply(null, em.glare);
@@ -289,7 +289,7 @@ renderPlayer = function(){
   ctx.translate(-24,-24)
   ctx.translate(-3,5)}
   if(movestr<2){ctx.drawImage(img,1+48*Math.floor(tick/8%4),1,46,47,0,0,48,48)}else{
-  ctx.drawImage(img,1,49,46,47,0,0,48,48)}
+  ctx.drawImage(img,1+48*Math.floor(tick/8%4),97,46,47,0,0,48,48)}
   
   ctx.setTransform(1,0,0,1,0,0)
 }
@@ -302,7 +302,7 @@ playerparticle.startvelvariance = {x:2,y:2}
 playerparticle.startvel = {x:0,y:-1}
 playerparticle.endvelvariance = {x:2,y:2}
 playerparticle.color = 1919
-playerparticle.glare = [10,0]
+playerparticle.glare = [2,0]
 renderFrame();
 
 var stars = createEmitter({x:0,y:0})
